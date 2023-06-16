@@ -1,10 +1,10 @@
 // Create 5 burgers (at least 3 should be beef)
 db.burgers.insertMany([
     { meat: 'beef', cheese: true, toppings: ['ketchup', 'onions'] },
-    { meat: 'chicken', cheese: false, toppings: ['ketchup', 'tomatoes'] },
+    { meat: 'beef', cheese: true, toppings: ['ketchup', 'tomatoes'] },
     { meat: 'beef', cheese: false, toppings: ['mayo', 'tomatoes'] },
-    { meat: 'vegan', cheese: true, toppings: ['ketchup', 'mayo', 'tomatoes'] },
-    { meat: 'beef', cheese: false, toppings: ['mayo', 'onions'] }
+    { meat: 'vegan', cheese: false, toppings: ['ketchup', 'mayo', 'tomatoes'] },
+    { meat: 'turkey', cheese: false, toppings: ['mayo', 'onions'] }
 ]);
 // Find all the burgers
 db.burgers.find();
@@ -13,7 +13,7 @@ db.burgers.find({}, { meat: 1 });
 // Show just the toppings of each burger
 db.burgers.find({}, { toppings: 1 });
 // Show everything but the cheese
-db.burgers.find({}, { cheese: 0 });
+db.burgers.find({}, { cheese: false });
 // Find all the burgers with beef
 db.burgers.find({ meat: 'beef' });
 // Find all the burgers that are not beef
